@@ -27,15 +27,16 @@
             font-family: 'Lato', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7; /* Légèrement augmenté pour le confort de lecture */
             font-size: 18px;
-            scroll-behavior: smooth; /* Défilement fluide pour le One Page */
+            scroll-behavior: smooth;
         }
 
         h1, h2, h3 {
             font-family: 'Amatic SC', cursive;
             color: var(--primary-green);
             font-weight: 700;
+            text-transform: uppercase; /* Déco: majuscules pour les titres */
         }
 
         h1 { font-size: 4.5rem; }
@@ -62,13 +63,6 @@
             padding: 40px 0 20px;
         }
         
-        .logo-container {
-            /* Le Mellow avec le style manuscrit, en attendant l'image */
-            font-size: 3rem; 
-            margin-bottom: 5px;
-            line-height: 1;
-        }
-
         .tagline {
             color: var(--accent-brown);
             font-size: 1.1rem;
@@ -86,10 +80,12 @@
             color: var(--text-color);
             font-weight: 700;
             opacity: 0.8;
+            border-bottom: 2px solid transparent; /* Déco: ligne subtile */
         }
         nav a:hover {
             color: var(--primary-green);
             opacity: 1;
+            border-bottom: 2px solid var(--primary-green);
         }
 
         /* --- 4. DECO DES BLOCS --- */
@@ -100,7 +96,7 @@
             text-align: center;
             padding: 80px 20px;
             border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(143, 170, 137, 0.15); /* Ombre douce verte */
+            box-shadow: 0 8px 30px rgba(143, 170, 137, 0.15); 
         }
 
         .hero h1 { 
@@ -132,8 +128,32 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
-        /* B. SECTION CONCEPT & SERVICES */
+        
+        /* B. NOUVEAUTÉ DECO : SECTION HISTOIRE */
+        #histoire {
+            background-color: var(--light-cream);
+            margin: 50px 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .story-box {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 3px double var(--accent-brown); /* Déco: Bordure double style artisanal */
+            border-radius: 10px;
+            background-color: #FFF;
+        }
+        
+        .story-box p {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        
+        /* C. SECTION CONCEPT & SERVICES */
         .concept-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -146,7 +166,7 @@
             padding: 40px 25px;
             background-color: var(--light-cream);
             border-radius: 15px;
-            border: 1px solid rgba(143, 170, 137, 0.3); /* Bordure Vert Sauge très fine */
+            border: 1px solid rgba(143, 170, 137, 0.3); 
             transition: 0.3s;
         }
         .concept-box:hover {
@@ -157,45 +177,8 @@
         .concept-icon { 
             font-size: 3rem; 
             margin-bottom: 15px; 
-            color: var(--accent-brown); /* Icônes couleur bois/café */
+            color: var(--accent-brown); 
             display: block; 
-        }
-
-        /* C. LA DECORATION PAR LES IMAGES */
-        .image-deco {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 60px 0;
-            background-color: var(--primary-green);
-            color: var(--light-cream);
-            border-radius: 20px;
-        }
-
-        .image-deco .text-content {
-            flex: 1;
-            padding: 0 40px;
-        }
-
-        .image-deco .text-content h2 { color: var(--light-cream); }
-        .image-deco .text-content p { margin-bottom: 20px; }
-
-        .image-placeholder {
-            width: 45%;
-            height: 300px;
-            background-color: var(--bg-color);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
-            color: var(--text-color);
-            opacity: 0.6;
-            overflow: hidden;
-            /* Placeholder pour intégrer l'illustration du logo en background très léger */
-            background-image: url('logo-illustration.svg'); /* À remplacer par le dessin au trait du logo */
-            background-size: cover;
-            background-position: center;
         }
 
         /* D. SECTION VRAC/ETHIQUE */
@@ -230,24 +213,13 @@
             border-top: 5px solid var(--primary-green);
             margin-top: 50px;
         }
-        .address { font-style: normal; margin-top: 15px; line-height: 2; }
-        .address a { 
-            color: var(--primary-green); 
-            font-weight: 700;
-            border-bottom: 2px dotted var(--primary-green);
-        }
-        .copyright { margin-top: 20px; font-size: 0.9rem; }
 
         /* --- RESPONSIVE (Optimisation Mobile) --- */
         @media (max-width: 768px) {
             h1 { font-size: 3.5rem; }
             h2 { font-size: 2.5rem; }
             
-            .image-deco { flex-direction: column; text-align: center; }
-            .image-deco .text-content, .image-placeholder { width: 100%; padding: 20px 0; }
-            .image-placeholder { height: 200px; margin-top: 20px; }
-            
-            .concept-grid { grid-template-columns: 1fr; }
+            nav a { display: block; margin: 5px 0; }
         }
     </style>
 </head>
@@ -256,12 +228,12 @@
     <header>
         <div class="container">
             <img src="logo-le-mellow.jpg" alt="Le Mellow Café Boutique Côte Pavée" class="logo-img" style="width: 180px; margin-bottom: 10px;">
-            <div class="logo-container" style="display: none;">Le Mellow</div>
             <div class="tagline">Café Boutique • Côte Pavée</div>
             
             <nav>
-                <a href="#concept">Concept</a>
-                <a href="#vrac">Le Vrac</a>
+                <a href="#histoire">Notre Histoire</a>
+                <a href="#concept">Le Concept</a>
+                <a href="#vrac">Engagement Vrac</a>
                 <a href="#gourmand">Gourmandises</a>
                 <a href="#infos">Infos & Contact</a>
             </nav>
@@ -271,62 +243,67 @@
     <main class="container">
         
         <section class="hero">
-            <h1>Dégustez, Aimez, Emportez.</h1>
+            <h1>Le Mellow</h1>
             <p>
-                Le Mellow vous offre une pause gourmande et éthique à Côte Pavée. 
-                Savourez nos créations saines et repartez avec les ingrédients bruts en vrac !
+                Votre nouveau lieu de vie gourmand et éthique au cœur de **Côte Pavée**. 
+                L'équilibre parfait entre plaisir gustatif et consommation responsable.
             </p>
-            <a href="#concept" class="btn">Découvrir le Concept</a>
+            <a href="#histoire" class="btn">En savoir plus</a>
+        </section>
+        
+        <section id="histoire">
+            <h2>L'Esprit Le Mellow</h2>
+            <div class="story-box">
+                <p>
+                    **Le Mellow Café Boutique** propose un concept innovant qui associe la **dégustation** sur place et la **vente en vrac** de produits sains.
+                </p>
+                <p>
+                    Nos pâtisseries et encas sont intégralement préparés avec des **ingrédients naturels** disponibles directement en boutique, tels que des fruits secs sélectionnés, des farines sans gluten et des alternatives au sucre raffiné.
+                </p>
+                <p>
+                    Situé dans le quartier de **Côte Pavée**, notre lieu vous permet de découvrir des créations gourmandes, puis d’acheter les mêmes ingrédients en vrac, dans une démarche **éthique et écologique** visant à réduire les emballages.
+                </p>
+                <p style="font-weight: bold; color: var(--accent-brown);">
+                    Le Mellow s’adresse à celles et ceux qui recherchent des saveurs authentiques, une alimentation plus saine et une expérience gourmande respectueuse de l’environnement.
+                </p>
+            </div>
         </section>
 
         <section id="concept">
-            <h2 class="text-align: center;">Notre Engagement, Vos Plaisirs.</h2>
+            <h2 style="text-align: center;">Dégustez, Aimez, Emportez.</h2>
             <div class="concept-grid">
                 <div class="concept-box">
-                    <span class="concept-icon">☕</span>
-                    <h3>Espace Dégustation</h3>
-                    <p>Pâtisseries artisanales, sans gluten ni sucres raffinés. Café de spécialité et boissons végétales. Un lieu douillet pour se faire du bien.</p>
+                    <span class="concept-icon">🍰</span>
+                    <h3>Pâtisseries & Encas Sains</h3>
+                    <p>Découvrez nos recettes originales : des créations gourmandes, riches en fibres, sans additifs et pensées pour le plaisir de tous.</p>
                 </div>
                 
                 <div class="concept-box">
-                    <span class="concept-icon">🌾</span>
-                    <h3>Boutique Zéro Déchet</h3>
-                    <p>Les mêmes farines, fruits secs et graines que nous utilisons sont disponibles en vrac. Encourageons la consommation responsable ensemble.</p>
+                    <span class="concept-icon">🛍️</span>
+                    <h3>Boutique Vrac</h3>
+                    <p>Faites vos provisions de nos ingrédients coups de cœur. Une consommation responsable, sans emballage, au service du goût.</p>
                 </div>
             </div>
         </section>
         
-        <section class="image-deco">
-            <div class="text-content">
-                <h2>Le goût de l'Authentique</h2>
-                <p>
-                    Nous sélectionnons des ingrédients bruts, traçables et de haute qualité pour garantir des saveurs franches et saines. C'est notre engagement pour votre bien-être.
-                </p>
-                <a href="#vrac" class="btn">Nos Ingrédients</a>
-            </div>
-            <div class="image-placeholder">
-                [Image d'une pâtisserie ou de bocaux de vrac joliment présentés]
-            </div>
-        </section>
-
         <section id="vrac" class="vrac-ethique">
-            <h2>Notre Démarche Éthique et Écologique</h2>
+            <h2>Nos Engagements Qualité</h2>
             <div class="ethique-list">
                 <span class="ethique-item">🌱 Sans Gluten & Sucre Raffiné</span>
                 <span class="ethique-item">♻️ Vente en Vrac (Zéro Déchet)</span>
-                <span class="ethique-item">🧑‍🍳 Fait Maison (Côte Pavée)</span>
+                <span class="ethique-item">🧑‍🍳 Pâtisseries Fait Maison</span>
             </div>
             <p style="margin-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Chaque achat soutient une chaîne courte et responsable. Venez avec vos contenants !
+                Toute notre démarche vise à encourager une consommation plus saine et responsable.
             </p>
         </section>
         
         <section id="gourmand" style="text-align: center;">
-            <h2>Vos Gourmandises du Jour</h2>
+            <h2>Venez nous rendre visite</h2>
             <p style="margin-bottom: 40px;">
-                Chaque jour, de nouvelles créations. Suivez-nous sur Instagram pour voir nos pâtisseries du moment !
+                Chaque jour, de nouvelles créations. Découvrez nos actualités et nos recettes du moment.
             </p>
-            <a href="#" class="btn" style="background-color: var(--accent-brown); border-color: var(--accent-brown);">Voir notre Instagram 📸</a>
+            <a href="#" class="btn" style="background-color: var(--accent-brown); border-color: var(--accent-brown);">Voir nos Horaires & Accès 🗺️</a>
         </section>
     </main>
 
