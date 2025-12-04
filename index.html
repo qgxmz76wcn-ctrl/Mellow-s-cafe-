@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Mellow Café Boutique | Dégustation & Vrac Éthique</title>
+    <!-- Chargement de Tailwind CSS pour un design rapide et responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuration des couleurs personnalisées pour rester fidèle à la charte graphique naturelle -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mellow-green': '#708b70', // Vert terreux inspiré du logo
+                        'mellow-light': '#f5f5ee', // Crème/beige très clair pour le fond
+                        'mellow-text': '#363636',  // Gris foncé pour le texte
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'], // Utilisation d'Inter ou du sans-serif par défaut
+                        'serif': ['Playfair Display', 'serif'], // Optionnel pour les titres si un style plus doux est souhaité
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Définir la police Inter comme police principale */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        /* Styles pour les titres (optionnel, plus doux) */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--mellow-light);
+            color: var(--mellow-text);
+            /* Pour un éco-index faible, les styles sont minimalistes */
+        }
+        .section-padding {
+            padding: 4rem 1rem;
+        }
+        @media (min-width: 640px) {
+            .section-padding {
+                padding: 6rem 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-mellow-light text-mellow-text antialiased">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-10 bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            
+            <!-- LOGO MIS À JOUR (Utilisation d'un placeholder d'image légère pour le faible éco-index) -->
+            <a href="#accueil" class="flex items-center space-x-3">
+                <!-- Placeholder simulant le logo circulaire -->
+                <img src="https://placehold.co/40x40/f5f5ee/708b70?text=M" alt="Logo Le Mellow" class="rounded-full border-2 border-mellow-green shadow-sm">
+                <div class="text-xl font-serif italic font-bold text-mellow-green">Le Mellow</div>
+                <span class="text-xs font-semibold tracking-widest text-mellow-text uppercase hidden sm:inline">Café Boutique</span>
+            </a>
+            
+            <!-- Menu de Navigation -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#concept" class="hover:text-mellow-green transition duration-150">Notre Concept</a>
+                <a href="#boutique" class="hover:text-mellow-green transition duration-150">L'Épicerie Vrac</a>
+                <a href="#ethique" class="hover:text-mellow-green transition duration-150">Éthique & Zéro Déchet</a>
+                <!-- Nouveau lien pour l'espace Projet / BP -->
+                <a href="#business-plan" class="text-red-500 hover:text-red-700 transition duration-150 font-bold">Projet (BP)</a>
+                <a href="#contact" class="hover:text-mellow-green transition duration-150">Contact & Lieu</a>
+            </div>
+            
+            <!-- Bouton pour Mobile (Hambuger - non fonctionnel sans JS, mais bien pour l'esthétique) -->
+            <button class="md:hidden text-mellow-text focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+        
+        <!-- Section 1: Accueil (Hero) -->
+        <section id="accueil" class="section-padding bg-mellow-green/10 rounded-xl m-4 sm:m-6 lg:m-8">
+            <div class="lg:flex lg:items-center lg:space-x-12">
+                <div class="lg:w-1/2">
+                    <h1 class="text-5xl sm:text-6xl font-serif italic font-extrabold leading-tight text-mellow-green">
+                        Gourmandise Authentique, <span class="block">Consommation Responsable.</span>
+                    </h1>
+                    <p class="mt-6 text-lg text-mellow-text">
+                        Bienvenue au Mellow Café Boutique, votre nouveau lieu gourmand et éthique à **Côte Pavée**. Découvrez des pâtisseries saines préparées avec des ingrédients naturels, puis repartez avec ces mêmes produits en vrac.
+                    </p>
+                    <div class="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#concept" class="bg-mellow-green text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-mellow-green/80 transition duration-300 text-center">
+                            Découvrir le Concept
+                        </a>
+                        <a href="#boutique" class="border border-mellow-green text-mellow-green font-semibold py-3 px-8 rounded-full hover:bg-mellow-green/10 transition duration-300 text-center">
+                            Voir les Produits Vrac
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Illustration simple (pour le faible éco-index) -->
+                <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center items-center">
+                    <div class="bg-white p-8 rounded-full shadow-xl w-64 h-64 sm:w-80 sm:h-80 flex flex-col justify-center items-center border-4 border-mellow-green/50">
+                        <span class="text-7xl" role="img" aria-label="Tasse de Café">☕</span>
+                        <span class="text-5xl" role="img" aria-label="Bocal Vrac">🫙</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Notre Concept -->
+        <section id="concept" class="section-padding">
+            <h2 class="text-4xl font-serif italic font-bold text-center mb-16 text-mellow-green">
+                Le Concept : Goûter, Adopter, Réduire
+            </h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Bloc 1: Dégustation Gourmande -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-mellow-green">
+                    <div class="text-3xl mb-4 text-mellow-green">🌿</div>
+                    <h3 class="text-xl font-bold mb-3">Pâtisseries & Encas Sains</h3>
+                    <p class="text-mellow-text">
+                        Laissez-vous tenter par nos créations gourmandes faites maison. Nous utilisons uniquement des ingrédients naturels : farines sans gluten, alternatives au sucre raffiné, et fruits secs sélectionnés.
+                    </p>
+                </div>
+                
+                <!-- Bloc 2: La Boutique Vrac -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-mellow-green">
+                    <div class="text-3xl mb-4 text-mellow-green">🫙</div>
+                    <h3 class="text-xl font-bold mb-3">L'Épicerie Zéro Déchet</h3>
+                    <p class="text-mellow-text">
+                        Vous avez adoré un ingrédient dans notre brownie ? Achetez-le directement en vrac ! La boutique propose une sélection de produits sains que nous utilisons nous-mêmes en cuisine.
+                    </p>
+                </div>
+                
+                <!-- Bloc 3: Éthique & Écologie -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-mellow-green">
+                    <div class="text-3xl mb-4 text-mellow-green">🌍</div>
+                    <h3 class="text-xl font-bold mb-3">Consommation Responsable</h3>
+                    <p class="text-mellow-text">
+                        Notre démarche est simple : réduire les emballages, encourager les circuits courts (lorsque possible) et vous permettre une alimentation plus saine et éthique au quotidien.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: L'Épicerie Vrac (Détails) -->
+        <section id="boutique" class="section-padding bg-mellow-green/5">
+            <h2 class="text-4xl font-serif italic font-bold text-center mb-12 text-mellow-green">
+                Nos Ingrédients Clés
+            </h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-lg">
+                Au Mellow, nous pensons que les meilleurs encas viennent des meilleurs ingrédients. Voici ce que vous trouverez dans nos créations... et sur nos étagères en vrac !
+            </p>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Ingrédient 1: Fruits Secs -->
+                <div class="text-center p-4">
+                    <div class="text-4xl mb-3">🌰</div>
+                    <h3 class="text-xl font-semibold mb-2">Fruits Secs Sélectionnés</h3>
+                    <p class="text-sm">Amandes, noix, noisettes, dattes... des produits de qualité, riches en énergie, pour vos petits déjeuners et vos goûters.</p>
+                </div>
+                
+                <!-- Ingrédient 2: Farines -->
+                <div class="text-center p-4">
+                    <div class="text-4xl mb-3">🌾</div>
+                    <h3 class="text-xl font-semibold mb-2">Farines Sans Gluten</h3>
+                    <p class="text-sm">Riz, sarrasin, châtaigne... une gamme complète pour les intolérants ou ceux qui veulent varier les plaisirs et les textures.</p>
+                </div>
+                
+                <!-- Ingrédient 3: Sucres -->
+                <div class="text-center p-4">
+                    <div class="text-4xl mb-3">🍯</div>
+                    <h3 class="text-xl font-semibold mb-2">Alternatives au Sucre</h3>
+                    <p class="text-sm">Sirop d'érable, miel local, sucre de coco... des options plus saines pour réduire l'impact du sucre raffiné sur votre corps.</p>
+                </div>
+                
+                <!-- Ingrédient 4: Autres -->
+                <div class="text-center p-4">
+                    <div class="text-4xl mb-3">☕</div>
+                    <h3 class="text-xl font-semibold mb-2">Café Éthique & Thés</h3>
+                    <p class="text-sm">Une sélection de cafés de spécialité et de thés bios pour accompagner parfaitement vos pauses gourmandes.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block bg-mellow-green text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-mellow-green/80 transition duration-300">
+                    Rendez-nous Visite
+                </a>
+            </div>
+        </section>
+        
+        <!-- NOUVELLE SECTION POUR LE BUSINESS PLAN (PARTIE INTERNE) -->
+        <!-- Cette section est pensée pour l'étudiant L2 MIASHS pour insérer ses données de BP. 
+             Elle est visible, mais clairement séparée des informations publiques. -->
+        <section id="business-plan" class="section-padding bg-red-100 border-2 border-red-500 rounded-xl m-4 sm:m-6 lg:m-8">
+            <h2 class="text-4xl font-serif italic font-bold text-center mb-12 text-red-700">
+                🚀 Projet & Business Plan (Espace Interne)
+            </h2>
+            <p class="text-center max-w-3xl mx-auto mb-10 text-red-800">
+                **ATTENTION :** Cette section est dédiée à l'intégration des résultats de votre Business Plan. Remplissez les blocs ci-dessous avec les données chiffrées (tables, graphiques simples) une fois le BP finalisé.
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Bloc 1: Analyse Stratégique & Juridique -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-red-500">
+                    <h3 class="text-xl font-bold mb-3 text-red-600">1. Analyse Stratégique et Juridique</h3>
+                    <div class="text-mellow-text space-y-2">
+                        <p class="font-semibold">Statut de l'Entreprise / Contraintes Juridiques :</p>
+                        <div class="bg-gray-50 p-3 rounded h-32 overflow-auto">
+                            <!-- INSÉRER ICI : Statut de l’entreprise et contraintes juridiques -->
+                            <p class="text-sm italic text-gray-500">Exemple : SARL / Normes HACCP pour la restauration.</p>
+                        </div>
+                        <p class="font-semibold pt-4">Analyse Commerciale (SWOT/PESTEL) :</p>
+                        <div class="bg-gray-50 p-3 rounded h-32 overflow-auto">
+                            <!-- INSÉRER ICI : Analyse stratégique et commerciale -->
+                            <p class="text-sm italic text-gray-500">Exemple : Tableau SWOT ou Résumé de l'étude de marché.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bloc 2: Management & Fiches de Postes -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-red-500">
+                    <h3 class="text-xl font-bold mb-3 text-red-600">2. Management & Fiches de Postes</h3>
+                    <div class="text-mellow-text space-y-2">
+                        <p class="font-semibold">Management de l'Équipe :</p>
+                        <div class="bg-gray-50 p-3 rounded h-32 overflow-auto">
+                            <!-- INSÉRER ICI : Management de l’équipe (organigramme, rôles) -->
+                            <p class="text-sm italic text-gray-500">Exemple : Organisation de l'équipe et principes de gestion.</p>
+                        </div>
+                        <p class="font-semibold pt-4">Fiches de Postes Clés :</p>
+                        <div class="bg-gray-50 p-3 rounded h-32 overflow-auto">
+                            <!-- INSÉRER ICI : Fiches de postes détaillées -->
+                            <p class="text-sm italic text-gray-500">Exemple : Fiche de poste du Pâtissier-Gérant et du Vendeur-Conseil.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloc 3: Outils Comptables Clés (Financement Initial) -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-red-500">
+                    <h3 class="text-xl font-bold mb-3 text-red-600">3. Financement Initial & Rentabilité</h3>
+                    <div class="text-mellow-text space-y-2">
+                        <p class="font-semibold">Plan de Financement Initial :</p>
+                        <div class="bg-gray-50 p-3 rounded h-32 overflow-auto">
+                            <!-- INSÉRER ICI : Plan de financement initial (tableau Actif/Passif) -->
+                            <p class="text-sm italic text-gray-500">Exemple : Tableau des ressources et emplois (Besoins/Ressources).</p>
+                        </div>
+                        <p class="font-semibold pt-4">Seuil de Rentabilité (SR) :</p>
+                        <div class="bg-gray-50 p-3 rounded h-32 overflow-auto">
+                            <!-- INSÉRER ICI : Seuil de Rentabilité (en Euros et en Taux) -->
+                            <p class="text-sm italic text-gray-500">Exemple : Calcul du Seuil de Rentabilité (SR en € et date d'atteinte).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bloc 4: Projections Financières à 3 Ans -->
+                <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-red-500 md:col-span-2 lg:col-span-3">
+                    <h3 class="text-xl font-bold mb-3 text-red-600">4. Projections et Évaluation</h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="p-3 bg-gray-50 rounded">
+                            <p class="font-semibold">Résultats à 3 Ans :</p>
+                            <div class="h-16 overflow-auto border p-1">
+                                <!-- INSÉRER ICI : Tableau de Résultat N+1, N+2, N+3 -->
+                                <p class="text-xs italic text-gray-500">Tableau des comptes de résultat prévisionnels.</p>
+                            </div>
+                        </div>
+                         <div class="p-3 bg-gray-50 rounded">
+                            <p class="font-semibold">Plan de Trésorerie :</p>
+                            <div class="h-16 overflow-auto border p-1">
+                                <!-- INSÉRER ICI : Plan de trésorerie sur 12 mois minimum -->
+                                <p class="text-xs italic text-gray-500">Tableau de flux de trésorerie.</p>
+                            </div>
+                        </div>
+                         <div class="p-3 bg-gray-50 rounded">
+                            <p class="font-semibold">FRNG / BFR :</p>
+                            <div class="h-16 overflow-auto border p-1">
+                                <!-- INSÉRER ICI : Calculs du FRNG et BFR -->
+                                <p class="text-xs italic text-gray-500">Fonds de Roulement Net Global / Besoin en Fonds de Roulement.</p>
+                            </div>
+                        </div>
+                         <div class="p-3 bg-gray-50 rounded">
+                            <p class="font-semibold">Amortissements :</p>
+                            <div class="h-16 overflow-auto border p-1">
+                                <!-- INSÉRER ICI : Tableau des Amortissements -->
+                                <p class="text-xs italic text-gray-500">Tableau des amortissements des investissements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+
+        <!-- Section 4: Localisation & Contact -->
+        <section id="contact" class="section-padding">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <h2 class="text-3xl font-serif italic font-bold mb-6 text-mellow-green">
+                        Où nous Trouver ?
+                    </h2>
+                    
+                    <p class="mb-4">
+                        <span class="font-bold block">Le Mellow Café Boutique</span>
+                        <span class="block">123 Rue de la Douceur,</span>
+                        <span class="block">31500 Toulouse (Quartier de **Côte Pavée**)</span>
+                    </p>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-3">Horaires (Exemple)</h3>
+                    <ul class="space-y-1 text-mellow-text">
+                        <li>**Mardi - Samedi :** 9h30 - 18h30</li>
+                        <li>**Dimanche - Lundi :** Fermé</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-3">Nous Contacter</h3>
+                    <p>
+                        **Téléphone :** 05 XX XX XX XX<br>
+                        **Email :** contact@lemellow.fr
+                    </p>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="p-6 bg-mellow-light/50 rounded-xl shadow-inner flex flex-col justify-center items-center h-64 md:h-auto">
+                    <h3 class="text-2xl font-semibold mb-4 text-mellow-green">Plan d'Accès</h3>
+                    <p class="text-center text-mellow-text/80">
+                        [Espace pour intégrer une carte (Google Maps ou autre) plus tard. Pour l'éco-index, nous laissons un simple placeholder.]
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-mellow-green text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm">
+            <p>&copy; 2025 Le Mellow Café Boutique. Tous droits réservés.</p>
+            <p class="mt-2">Concept : Dégustation Saine & Épicerie Vrac | <a href="#" class="underline hover:text-white/80">Mentions Légales</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
