@@ -88,6 +88,7 @@
         }
         
         .logo-img {
+            /* Ligne de code pour le logo, centrée */
             display: block; 
             margin: 0 auto 10px; 
             width: 180px; 
@@ -212,7 +213,7 @@
             display: block; 
         }
 
-        /* D. NOUVEAUTÉ : MINI-GALERIE THÉMATIQUE */
+        /* D. MINI-GALERIE THÉMATIQUE */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -221,7 +222,7 @@
         }
         .gallery-item img {
             width: 100%;
-            height: 250px; /* Hauteur fixe pour une belle grille */
+            height: 250px; 
             border: 3px solid var(--light-cream);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
@@ -230,7 +231,7 @@
             transform: scale(1.03);
         }
 
-        /* E. NOUVEAUTÉ : FOCUS PRODUIT */
+        /* E. FOCUS PRODUIT */
         #focus {
             background-color: var(--primary-green);
             color: var(--light-cream);
@@ -252,7 +253,7 @@
         }
         #focus .focus-img img { height: 100%; width: 100%; }
 
-        /* F. NOUVEAUTÉ : FORMULAIRE DE CONTACT */
+        /* F. FORMULAIRE DE CONTACT */
         #contact {
             background-color: var(--light-cream);
             padding: 60px;
@@ -277,7 +278,7 @@
             width: 100%;
             padding: 12px;
             border: 1px solid #E0E0E0;
-            border-radius: 8px; /* Bords doux pour le style Mellow */
+            border-radius: 8px; 
             font-family: inherit;
             font-size: 1rem;
             transition: border-color 0.3s;
@@ -423,13 +424,13 @@
             <form action="VOTRE_LIEN_FORMULAIRE_ICI" method="POST">
                 
                 <div class="form-group">
-                    <label for="name">Votre Nom *</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="name">Votre Nom</label>
+                    <input type="text" id="name" name="name">
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Votre Email *</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email">Votre Email</label>
+                    <input type="email" id="email" name="email">
                 </div>
                 
                 <div class="form-group">
@@ -438,12 +439,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Votre Message ou Commande *</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="message">Votre Message ou Commande</label>
+                    <textarea id="message" name="message"></textarea>
                 </div>
                 
                 <button type="submit" class="btn">Envoyer mon message</button>
             </form>
+            <p style="text-align: center; margin-top: 20px; font-size: 0.9em; color: var(--accent-brown);">
+                *Veuillez noter que le nom et l'email sont nécessaires pour vous répondre.
+            </p>
         </section>
 
     </main>
@@ -459,7 +463,7 @@
             📞 **Contact :** <a href="tel:+33xxxxxxxxxx">0X XX XX XX XX</a>
         </address>
         
-        <p class="copyright">© 2024 Le Mellow - Site éco-conçu.</p>
+        <p class="copyright">© 2024 Le Mellow - Site éco-conçu et ultra-léger.</p>
     </footer>
 
 </body>
