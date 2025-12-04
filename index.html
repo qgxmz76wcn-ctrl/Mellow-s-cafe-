@@ -27,16 +27,34 @@
             font-family: 'Lato', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.7; /* Légèrement augmenté pour le confort de lecture */
+            line-height: 1.7; 
             font-size: 18px;
             scroll-behavior: smooth;
         }
+        
+        /* --- NOUVEAUTÉ DÉCO ARRIÈRE-PLAN (Léger et Éco-responsable) --- */
+        /* Utilisation d'un dégradé et d'un faux motif très pâle */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Dégradé très subtil pour éviter le blanc plat */
+            background: radial-gradient(circle at top right, rgba(143, 170, 137, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(166, 123, 91, 0.03) 0%, transparent 40%);
+            z-index: -1; /* Placé sous le contenu */
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
 
         h1, h2, h3 {
             font-family: 'Amatic SC', cursive;
             color: var(--primary-green);
             font-weight: 700;
-            text-transform: uppercase; /* Déco: majuscules pour les titres */
+            text-transform: uppercase; 
         }
 
         h1 { font-size: 4.5rem; }
@@ -63,6 +81,14 @@
             padding: 40px 0 20px;
         }
         
+        .logo-img {
+            /* Ligne de code pour le logo, centrée */
+            display: block; 
+            margin: 0 auto 10px; 
+            width: 180px; /* Taille optimisée pour l'affichage et la légèreté */
+            height: auto;
+        }
+
         .tagline {
             color: var(--accent-brown);
             font-size: 1.1rem;
@@ -80,7 +106,7 @@
             color: var(--text-color);
             font-weight: 700;
             opacity: 0.8;
-            border-bottom: 2px solid transparent; /* Déco: ligne subtile */
+            border-bottom: 2px solid transparent; 
         }
         nav a:hover {
             color: var(--primary-green);
@@ -143,7 +169,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 30px;
-            border: 3px double var(--accent-brown); /* Déco: Bordure double style artisanal */
+            border: 3px double var(--accent-brown); 
             border-radius: 10px;
             background-color: #FFF;
         }
@@ -227,14 +253,13 @@
 
     <header>
         <div class="container">
-            <img src="logo-le-mellow.jpg" alt="Le Mellow Café Boutique Côte Pavée" class="logo-img" style="width: 180px; margin-bottom: 10px;">
+            <img src="logo-le-mellow.jpg" alt="Le Mellow Café Boutique Côte Pavée" class="logo-img" style="width: 180px;">
             <div class="tagline">Café Boutique • Côte Pavée</div>
             
             <nav>
                 <a href="#histoire">Notre Histoire</a>
                 <a href="#concept">Le Concept</a>
                 <a href="#vrac">Engagement Vrac</a>
-                <a href="#gourmand">Gourmandises</a>
                 <a href="#infos">Infos & Contact</a>
             </nav>
         </div>
