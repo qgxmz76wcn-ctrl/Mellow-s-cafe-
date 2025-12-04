@@ -57,12 +57,19 @@
         }
 
         h1 { font-size: 4.5rem; }
-        h2 { font-size: 3rem; margin-bottom: 25px; }
+        h2 { font-size: 3rem; margin-bottom: 25px; text-align: center; }
         h3 { font-size: 2.5rem; margin-bottom: 15px; }
 
         a { text-decoration: none; color: inherit; transition: 0.3s ease; }
         ul { list-style: none; }
-        img { max-width: 100%; height: auto; border-radius: 10px; }
+
+        /* --- IMAGES OPTIMISÉES --- */
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 10px;
+            object-fit: cover; /* Assure que les images couvrent la zone */
+        }
 
         /* --- 3. STRUCTURE ET MISE EN PAGE --- */
         .container {
@@ -81,7 +88,6 @@
         }
         
         .logo-img {
-            /* Ligne de code pour le logo, centrée */
             display: block; 
             margin: 0 auto 10px; 
             width: 180px; 
@@ -206,31 +212,90 @@
             display: block; 
         }
 
-        /* D. SECTION VRAC/ETHIQUE */
-        .vrac-ethique {
-            text-align: center;
-            padding-bottom: 0;
+        /* D. NOUVEAUTÉ : MINI-GALERIE THÉMATIQUE */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px; /* Hauteur fixe pour une belle grille */
+            border: 3px solid var(--light-cream);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.03);
         }
 
-        .ethique-list {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .ethique-item {
-            background: var(--accent-brown);
+        /* E. NOUVEAUTÉ : FOCUS PRODUIT */
+        #focus {
+            background-color: var(--primary-green);
             color: var(--light-cream);
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+            border-radius: 20px;
+            padding: 60px;
+            margin: 50px 0;
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
-        
-        /* E. FOOTER */
+        #focus h2, #focus h3 { color: var(--light-cream); text-align: left; }
+        #focus .focus-img {
+            min-width: 150px;
+            max-width: 200px;
+            height: 200px;
+            border: 5px solid var(--light-cream);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        #focus .focus-img img { height: 100%; width: 100%; }
+
+        /* F. NOUVEAUTÉ : FORMULAIRE DE CONTACT */
+        #contact {
+            background-color: var(--light-cream);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px; /* Bords doux pour le style Mellow */
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, 
+        input[type="email"]:focus, 
+        textarea:focus {
+            border-color: var(--accent-brown);
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* G. FOOTER */
         footer {
             background-color: var(--light-cream);
             padding: 50px 20px;
@@ -245,6 +310,11 @@
             h2 { font-size: 2.5rem; }
             
             nav a { display: block; margin: 5px 0; }
+            
+            #focus { flex-direction: column; text-align: center; }
+            #focus .focus-img { margin-bottom: 20px; }
+            
+            #contact { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -259,8 +329,9 @@
             <nav>
                 <a href="#histoire">Notre Histoire</a>
                 <a href="#concept">Le Concept</a>
-                <a href="#vrac">Engagement Vrac</a>
-                <a href="#infos">Infos & Contact</a>
+                <a href="#galerie">Photos</a>
+                <a href="#contact">Contact</a>
+                <a href="#infos">Infos</a>
             </nav>
         </div>
     </header>
@@ -295,7 +366,7 @@
         </section>
 
         <section id="concept">
-            <h2 style="text-align: center;">Dégustez, Aimez, Emportez.</h2>
+            <h2>Dégustez, Aimez, Emportez.</h2>
             <div class="concept-grid">
                 <div class="concept-box">
                     <span class="concept-icon">🍰</span>
@@ -308,28 +379,73 @@
                     <h3>Boutique Vrac</h3>
                     <p>Faites vos provisions de nos ingrédients coups de cœur. Une consommation responsable, sans emballage, au service du goût.</p>
                 </div>
+                <div class="concept-box">
+                    <span class="concept-icon">🌱</span>
+                    <h3>Sourcing Éthique</h3>
+                    <p>Nous sélectionnons nos cafés, nos fruits secs et nos farines auprès de producteurs locaux ou engagés dans des démarches responsables.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="focus">
+            <div class="focus-img">
+                <img src="focus-farine-riz.webp" alt="Farine de riz complet" loading="lazy">
+            </div>
+            <div>
+                <h2>Focus Produit du Mois :</h2>
+                <h3>La Farine de Riz Complet Bio</h3>
+                <p>
+                    Cet ingrédient est la star de notre *Cake du Moment* ! Nous l'aimons pour sa légèreté naturelle, son apport nutritionnel élevé et sa texture délicate. 
+                </p>
+                <p>
+                    **Disponible en vrac dans notre boutique !**
+                </p>
             </div>
         </section>
         
-        <section id="vrac" class="vrac-ethique">
-            <h2>Nos Engagements Qualité</h2>
-            <div class="ethique-list">
-                <span class="ethique-item">🌱 Sans Gluten & Sucre Raffiné</span>
-                <span class="ethique-item">♻️ Vente en Vrac (Zéro Déchet)</span>
-                <span class="ethique-item">🧑‍🍳 Pâtisseries Fait Maison</span>
+        <section id="galerie">
+            <h2>Notre Univers en Images</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="mellow-patisserie-1.webp" alt="Gros plan d'un gâteau Le Mellow" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="mellow-ambiance-2.webp" alt="Ambiance cozy du café Le Mellow" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="mellow-vrac-3.webp" alt="Bocaux de vrac et épicerie" loading="lazy">
+                </div>
             </div>
-            <p style="margin-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Toute notre démarche vise à encourager une consommation plus saine et responsable.
-            </p>
         </section>
         
-        <section id="gourmand" style="text-align: center;">
-            <h2>Venez nous rendre visite</h2>
-            <p style="margin-bottom: 40px;">
-                Chaque jour, de nouvelles créations. Découvrez nos actualités et nos recettes du moment.
-            </p>
-            <a href="#" class="btn" style="background-color: var(--accent-brown); border-color: var(--accent-brown);">Voir nos Horaires & Accès 🗺️</a>
+        <section id="contact">
+            <h2>Une Question ? Une Commande ?</h2>
+            <form action="VOTRE_LIEN_FORMULAIRE_ICI" method="POST">
+                
+                <div class="form-group">
+                    <label for="name">Votre Nom *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Votre Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Objet de votre message</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Votre Message ou Commande *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Envoyer mon message</button>
+            </form>
         </section>
+
     </main>
 
     <footer id="infos">
