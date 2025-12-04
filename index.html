@@ -3,114 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Mellow – Café Boutique – Côté Pavée</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Le Mellow - Café Boutique & Vrac | Côte Pavée</title>
+    <meta name="description" content="Café boutique à Côte Pavée. Pâtisseries saines, sans gluten et vente d'ingrédients en vrac. Une démarche éthique et gourmande.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 
-    <!-- ECO INDEX → Pas de JS, pas de frameworks, images légères -->
+    <style>
+        /* --- VARIABLES & COULEURS (Charte Graphique Le Mellow) --- */
+        :root {
+            --bg-color: #FDFBF7; /* Le fond crème du logo */
+            --primary-green: #8FAA89; /* Le vert sauge du cercle */
+            --accent-brown: #A67B5B; /* Le marron des grains/bois */
+            --text-color: #4A4A4A; /* Gris foncé doux pour la lecture */
+            --white: #FFFFFF;
+        }
+
+        /* --- RESET & BASES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Amatic SC', cursive; /* Style manuscrit rappelant le logo */
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- STRUCTURE --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        
+        .logo-text {
+            font-size: 4rem;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            color: var(--accent-brown);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--white);
+            border-radius: 20px; /* Douceur des formes */
+            margin: 20px auto;
+            max-width: 1000px;
+            box-shadow: 0 4px 15px rgba(143, 170, 137, 0.1); /* Ombre très légère */
+        }
+
+        .hero h2 { font-size: 3rem; margin-bottom: 20px; color: var(--accent-brown); }
+        .hero p { max-width: 600px; margin: 0 auto 30px; }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            border: 2px solid var(--primary-green);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-green);
+        }
+
+        /* --- CONCEPT SECTION (2 colonnes) --- */
+        .concept {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .concept-box {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            border: 1px solid var(--primary-green);
+            border-radius: 15px;
+        }
+
+        .concept-box h3 { font-size: 2.5rem; margin-bottom: 15px; }
+        .concept-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+
+        /* --- DETAILS VRAC --- */
+        .vrac-list {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 50px;
+        }
+        .vrac-list h2 { color: var(--white); font-size: 3rem; }
+        .ingredients {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .ingredient-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #e0e0e0;
+            color: var(--accent-brown);
+            font-size: 0.9rem;
+        }
+        .address { font-style: normal; margin-bottom: 15px; font-weight: bold;}
+
+        /* --- IMAGES RESPONSIVE --- */
+        img { max-width: 100%; height: auto; border-radius: 10px; }
+
+    </style>
 </head>
+<body>
 
-<body id="top">
-
-    <!-- HEADER -->
-    <header class="header">
-        <a href="#top" class="brand">
-            <img src="logo-mellow.png" alt="Logo du café Le Mellow – Café Boutique Côté Pavée" class="logo">
-            <div>
-                <h1>Le Mellow</h1>
-                <p class="subtitle">Café Boutique — Côté Pavée</p>
-            </div>
-        </a>
-
-        <nav class="nav">
-            <a href="#concept">Concept</a>
-            <a href="#cafe">Le Café</a>
-            <a href="#epicerie">Épicerie Vrac</a>
-            <a href="#bp">Business Plan</a>
-            <a href="#equipe">Équipe</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <header>
+        <div class="container">
+            <div class="logo-text">Le Mellow</div> 
+            <div class="tagline">Café Boutique • Côte Pavée</div>
+        </div>
     </header>
 
-    <!-- SECTION HERO -->
-    <section class="hero">
-        <h2>Un café sain, gourmand et responsable.</h2>
-        <p>Découvrez nos douceurs faites maison & nos produits naturels vendus en vrac.</p>
-    </section>
+    <main class="container">
+        
+        <section class="hero">
+            <h2>Dégustez, Aimez, Emportez.</h2>
+            <p>
+                Un concept unique à Toulouse qui associe dégustation de pâtisseries saines 
+                et vente en vrac. Des ingrédients naturels, sans sucre raffiné et sans gluten, 
+                disponibles directement du bocal à votre assiette.
+            </p>
+            <a href="#infos" class="btn">Nous trouver</a>
+        </section>
 
-    <!-- CONCEPT -->
-    <section id="concept" class="section">
-        <h2>Le Concept</h2>
-        <p>
-            Le Mellow Café Boutique propose un concept unique : un café chaleureux associé à
-            une épicerie vrac de produits naturels. Dégustez nos pâtisseries maison, puis
-            achetez les ingrédients en boutique, dans une démarche zéro déchet.
-        </p>
-    </section>
+        <section class="concept">
+            <div class="concept-box">
+                <span class="concept-icon">☕</span>
+                <h3>La Dégustation</h3>
+                <p>Prenez le temps d'une pause douceur dans notre salon. Découvrez nos créations maison réalisées avec des farines alternatives et des fruits secs d'exception.</p>
+            </div>
+            
+            <div class="concept-box">
+                <span class="concept-icon">⚖️</span>
+                <h3>L'Épicerie Vrac</h3>
+                <p>Coup de cœur pour nos ingrédients ? Repartez avec ! Achetez nos farines, granolas et fruits secs en vrac. Zéro emballage, 100% responsable.</p>
+            </div>
+        </section>
 
-    <!-- CAFÉ -->
-    <section id="cafe" class="section">
-        <h2>Le Café & Nos Gourmandises</h2>
-        <p>
-            Snacks sains, pâtisseries maison, alternatives sans gluten, sans sucre raffiné,
-            farines naturelles, et boissons chaudes préparées sur place.
-        </p>
-    </section>
+        <section class="vrac-list">
+            <h2>Nos Essentiels</h2>
+            <p>Tout ce qu'il faut pour une cuisine saine :</p>
+            <div class="ingredients">
+                <span class="ingredient-item">Fruits secs sélectionnés</span>
+                <span class="ingredient-item">Farines sans gluten</span>
+                <span class="ingredient-item">Alternatives au sucre</span>
+                <span class="ingredient-item">Granola Maison</span>
+                <span class="ingredient-item">Café de spécialité</span>
+            </div>
+        </section>
 
-    <!-- ÉPICERIE -->
-    <section id="epicerie" class="section">
-        <h2>Épicerie Vrac</h2>
-        <ul>
-            <li>Fruits secs</li>
-            <li>Farines sans gluten</li>
-            <li>Céréales & graines</li>
-            <li>Café en grains</li>
-            <li>Alternatives naturelles au sucre</li>
-        </ul>
-    </section>
+    </main>
 
-    <!-- BUSINESS PLAN -->
-    <section id="bp" class="section">
-        <h2>Business Plan</h2>
-
-        <h3>Analyse Stratégique</h3>
-        <p>
-            Situé à Côté Pavée, notre café s’adresse aux familles, actifs, sportifs et
-            habitant·e·s du quartier.
-        </p>
-
-        <h3>Juridique</h3>
-        <p>Statut recommandé : SAS / Micro-entreprise — selon charges prévues.</p>
-
-        <h3>Comptabilité</h3>
-        <ul>
-            <li>Plan de financement initial</li>
-            <li>Seuil de rentabilité</li>
-            <li>Résultat prévisionnel</li>
-            <li>Plan de trésorerie 3 ans</li>
-            <li>Amortissements</li>
-            <li>FRNG, BFR</li>
-        </ul>
-    </section>
-
-    <!-- ÉQUIPE -->
-    <section id="equipe" class="section">
-        <h2>L'Équipe</h2>
-        <p>
-            Une équipe passionnée de produits naturels, de cuisine artisanale et de
-            consommation durable.
-        </p>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p>📍 Côté Pavée, Toulouse</p>
-        <p>📧 contact@lemellow.fr</p>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>© 2025 – Le Mellow Café Boutique – Site éco-conçu</p>
+    <footer id="infos">
+        <div class="container">
+            <h3>Le Mellow</h3>
+            <address class="address">
+                Quartier Côte Pavée<br>
+                31500 Toulouse
+            </address>
+            <p>Ouvert du Mardi au Samedi <br> 08h30 - 18h00</p>
+            <br>
+            <p>© 2024 Le Mellow - Site éco-conçu</p>
+        </div>
     </footer>
 
 </body>
