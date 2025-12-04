@@ -8,19 +8,19 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- VARIABLES & COULEURS (Charte Graphique Le Mellow) --- */
+        /* --- 1. VARIABLES & COULEURS (Charte Mellow) --- */
         :root {
-            --bg-color: #FDFBF7; /* Le fond crème du logo */
-            --primary-green: #8FAA89; /* Le vert sauge du cercle */
-            --accent-brown: #A67B5B; /* Le marron des grains/bois */
-            --text-color: #4A4A4A; /* Gris foncé doux pour la lecture */
-            --white: #FFFFFF;
+            --bg-color: #F9F7F2; /* Fond Crème très clair */
+            --primary-green: #8FAA89; /* Vert Sauge du cercle */
+            --accent-brown: #A67B5B; /* Brun des grains/bois pour les accents chauds */
+            --text-color: #333333; /* Gris foncé pour la lecture */
+            --light-cream: #FFFFFF; /* Blanc cassé pour les blocs internes */
         }
 
-        /* --- RESET & BASES --- */
+        /* --- 2. RESET & BASES --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
@@ -29,191 +29,319 @@
             color: var(--text-color);
             line-height: 1.6;
             font-size: 18px;
+            scroll-behavior: smooth; /* Défilement fluide pour le One Page */
         }
 
         h1, h2, h3 {
-            font-family: 'Amatic SC', cursive; /* Style manuscrit rappelant le logo */
+            font-family: 'Amatic SC', cursive;
             color: var(--primary-green);
             font-weight: 700;
         }
 
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
+        h1 { font-size: 4.5rem; }
+        h2 { font-size: 3rem; margin-bottom: 25px; }
+        h3 { font-size: 2.5rem; margin-bottom: 15px; }
 
-        /* --- STRUCTURE --- */
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; border-radius: 10px; }
+
+        /* --- 3. STRUCTURE ET MISE EN PAGE --- */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 25px;
+        }
+        section {
+            padding: 80px 0;
         }
 
-        /* --- HEADER --- */
+        /* --- HEADER & NAVIGATION --- */
         header {
             text-align: center;
             padding: 40px 0 20px;
         }
         
-        .logo-text {
-            font-size: 4rem;
-            color: var(--primary-green);
-            margin-bottom: 10px;
+        .logo-container {
+            /* Le Mellow avec le style manuscrit, en attendant l'image */
+            font-size: 3rem; 
+            margin-bottom: 5px;
+            line-height: 1;
         }
-        
+
         .tagline {
             color: var(--accent-brown);
-            font-size: 1.2rem;
-            letter-spacing: 1px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 400;
         }
 
-        /* --- HERO SECTION --- */
-        .hero {
+        nav {
             text-align: center;
-            padding: 60px 20px;
-            background-color: var(--white);
-            border-radius: 20px; /* Douceur des formes */
-            margin: 20px auto;
-            max-width: 1000px;
-            box-shadow: 0 4px 15px rgba(143, 170, 137, 0.1); /* Ombre très légère */
+            margin-top: 20px;
+        }
+        nav a {
+            padding: 5px 15px;
+            color: var(--text-color);
+            font-weight: 700;
+            opacity: 0.8;
+        }
+        nav a:hover {
+            color: var(--primary-green);
+            opacity: 1;
         }
 
-        .hero h2 { font-size: 3rem; margin-bottom: 20px; color: var(--accent-brown); }
-        .hero p { max-width: 600px; margin: 0 auto 30px; }
+        /* --- 4. DECO DES BLOCS --- */
+
+        /* A. SECTION HERO */
+        .hero {
+            background-color: var(--light-cream);
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(143, 170, 137, 0.15); /* Ombre douce verte */
+        }
+
+        .hero h1 { 
+            color: var(--primary-green);
+            font-size: 5rem;
+            margin-bottom: 10px;
+        }
+        .hero p { 
+            max-width: 700px; margin: 0 auto 40px; 
+            font-size: 1.3rem; 
+            color: var(--accent-brown);
+        }
 
         .btn {
             display: inline-block;
             background-color: var(--primary-green);
-            color: var(--white);
-            padding: 12px 30px;
+            color: var(--light-cream);
+            padding: 14px 35px;
             border-radius: 50px;
             font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             border: 2px solid var(--primary-green);
         }
         
         .btn:hover {
             background-color: transparent;
             color: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* --- CONCEPT SECTION (2 colonnes) --- */
-        .concept {
-            display: flex;
-            flex-wrap: wrap;
+        /* B. SECTION CONCEPT & SERVICES */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            padding: 60px 0;
+            margin-top: 50px;
             text-align: center;
         }
 
         .concept-box {
-            flex: 1;
-            min-width: 300px;
-            padding: 30px;
-            border: 1px solid var(--primary-green);
+            padding: 40px 25px;
+            background-color: var(--light-cream);
             border-radius: 15px;
+            border: 1px solid rgba(143, 170, 137, 0.3); /* Bordure Vert Sauge très fine */
+            transition: 0.3s;
+        }
+        .concept-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(143, 170, 137, 0.2);
         }
 
-        .concept-box h3 { font-size: 2.5rem; margin-bottom: 15px; }
-        .concept-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+        .concept-icon { 
+            font-size: 3rem; 
+            margin-bottom: 15px; 
+            color: var(--accent-brown); /* Icônes couleur bois/café */
+            display: block; 
+        }
 
-        /* --- DETAILS VRAC --- */
-        .vrac-list {
+        /* C. LA DECORATION PAR LES IMAGES */
+        .image-deco {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 0;
             background-color: var(--primary-green);
-            color: var(--white);
-            padding: 50px 20px;
-            text-align: center;
+            color: var(--light-cream);
             border-radius: 20px;
-            margin-bottom: 50px;
         }
-        .vrac-list h2 { color: var(--white); font-size: 3rem; }
-        .ingredients {
+
+        .image-deco .text-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        .image-deco .text-content h2 { color: var(--light-cream); }
+        .image-deco .text-content p { margin-bottom: 20px; }
+
+        .image-placeholder {
+            width: 45%;
+            height: 300px;
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.6;
+            overflow: hidden;
+            /* Placeholder pour intégrer l'illustration du logo en background très léger */
+            background-image: url('logo-illustration.svg'); /* À remplacer par le dessin au trait du logo */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* D. SECTION VRAC/ETHIQUE */
+        .vrac-ethique {
+            text-align: center;
+            padding-bottom: 0;
+        }
+
+        .ethique-list {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 30px;
             margin-top: 30px;
-        }
-        .ingredient-item {
-            background: rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 30px;
+            flex-wrap: wrap;
         }
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #e0e0e0;
-            color: var(--accent-brown);
+        .ethique-item {
+            background: var(--accent-brown);
+            color: var(--light-cream);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
             font-size: 0.9rem;
         }
-        .address { font-style: normal; margin-bottom: 15px; font-weight: bold;}
+        
+        /* E. FOOTER */
+        footer {
+            background-color: var(--light-cream);
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 5px solid var(--primary-green);
+            margin-top: 50px;
+        }
+        .address { font-style: normal; margin-top: 15px; line-height: 2; }
+        .address a { 
+            color: var(--primary-green); 
+            font-weight: 700;
+            border-bottom: 2px dotted var(--primary-green);
+        }
+        .copyright { margin-top: 20px; font-size: 0.9rem; }
 
-        /* --- IMAGES RESPONSIVE --- */
-        img { max-width: 100%; height: auto; border-radius: 10px; }
-
+        /* --- RESPONSIVE (Optimisation Mobile) --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            
+            .image-deco { flex-direction: column; text-align: center; }
+            .image-deco .text-content, .image-placeholder { width: 100%; padding: 20px 0; }
+            .image-placeholder { height: 200px; margin-top: 20px; }
+            
+            .concept-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container">
-            <div class="logo-text">Le Mellow</div> 
+            <img src="logo-le-mellow.jpg" alt="Le Mellow Café Boutique Côte Pavée" class="logo-img" style="width: 180px; margin-bottom: 10px;">
+            <div class="logo-container" style="display: none;">Le Mellow</div>
             <div class="tagline">Café Boutique • Côte Pavée</div>
+            
+            <nav>
+                <a href="#concept">Concept</a>
+                <a href="#vrac">Le Vrac</a>
+                <a href="#gourmand">Gourmandises</a>
+                <a href="#infos">Infos & Contact</a>
+            </nav>
         </div>
     </header>
 
     <main class="container">
         
         <section class="hero">
-            <h2>Dégustez, Aimez, Emportez.</h2>
+            <h1>Dégustez, Aimez, Emportez.</h1>
             <p>
-                Un concept unique à Toulouse qui associe dégustation de pâtisseries saines 
-                et vente en vrac. Des ingrédients naturels, sans sucre raffiné et sans gluten, 
-                disponibles directement du bocal à votre assiette.
+                Le Mellow vous offre une pause gourmande et éthique à Côte Pavée. 
+                Savourez nos créations saines et repartez avec les ingrédients bruts en vrac !
             </p>
-            <a href="#infos" class="btn">Nous trouver</a>
+            <a href="#concept" class="btn">Découvrir le Concept</a>
         </section>
 
-        <section class="concept">
-            <div class="concept-box">
-                <span class="concept-icon">☕</span>
-                <h3>La Dégustation</h3>
-                <p>Prenez le temps d'une pause douceur dans notre salon. Découvrez nos créations maison réalisées avec des farines alternatives et des fruits secs d'exception.</p>
+        <section id="concept">
+            <h2 class="text-align: center;">Notre Engagement, Vos Plaisirs.</h2>
+            <div class="concept-grid">
+                <div class="concept-box">
+                    <span class="concept-icon">☕</span>
+                    <h3>Espace Dégustation</h3>
+                    <p>Pâtisseries artisanales, sans gluten ni sucres raffinés. Café de spécialité et boissons végétales. Un lieu douillet pour se faire du bien.</p>
+                </div>
+                
+                <div class="concept-box">
+                    <span class="concept-icon">🌾</span>
+                    <h3>Boutique Zéro Déchet</h3>
+                    <p>Les mêmes farines, fruits secs et graines que nous utilisons sont disponibles en vrac. Encourageons la consommation responsable ensemble.</p>
+                </div>
             </div>
-            
-            <div class="concept-box">
-                <span class="concept-icon">⚖️</span>
-                <h3>L'Épicerie Vrac</h3>
-                <p>Coup de cœur pour nos ingrédients ? Repartez avec ! Achetez nos farines, granolas et fruits secs en vrac. Zéro emballage, 100% responsable.</p>
+        </section>
+        
+        <section class="image-deco">
+            <div class="text-content">
+                <h2>Le goût de l'Authentique</h2>
+                <p>
+                    Nous sélectionnons des ingrédients bruts, traçables et de haute qualité pour garantir des saveurs franches et saines. C'est notre engagement pour votre bien-être.
+                </p>
+                <a href="#vrac" class="btn">Nos Ingrédients</a>
+            </div>
+            <div class="image-placeholder">
+                [Image d'une pâtisserie ou de bocaux de vrac joliment présentés]
             </div>
         </section>
 
-        <section class="vrac-list">
-            <h2>Nos Essentiels</h2>
-            <p>Tout ce qu'il faut pour une cuisine saine :</p>
-            <div class="ingredients">
-                <span class="ingredient-item">Fruits secs sélectionnés</span>
-                <span class="ingredient-item">Farines sans gluten</span>
-                <span class="ingredient-item">Alternatives au sucre</span>
-                <span class="ingredient-item">Granola Maison</span>
-                <span class="ingredient-item">Café de spécialité</span>
+        <section id="vrac" class="vrac-ethique">
+            <h2>Notre Démarche Éthique et Écologique</h2>
+            <div class="ethique-list">
+                <span class="ethique-item">🌱 Sans Gluten & Sucre Raffiné</span>
+                <span class="ethique-item">♻️ Vente en Vrac (Zéro Déchet)</span>
+                <span class="ethique-item">🧑‍🍳 Fait Maison (Côte Pavée)</span>
             </div>
+            <p style="margin-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Chaque achat soutient une chaîne courte et responsable. Venez avec vos contenants !
+            </p>
         </section>
-
+        
+        <section id="gourmand" style="text-align: center;">
+            <h2>Vos Gourmandises du Jour</h2>
+            <p style="margin-bottom: 40px;">
+                Chaque jour, de nouvelles créations. Suivez-nous sur Instagram pour voir nos pâtisseries du moment !
+            </p>
+            <a href="#" class="btn" style="background-color: var(--accent-brown); border-color: var(--accent-brown);">Voir notre Instagram 📸</a>
+        </section>
     </main>
 
     <footer id="infos">
-        <div class="container">
-            <h3>Le Mellow</h3>
-            <address class="address">
-                Quartier Côte Pavée<br>
-                31500 Toulouse
-            </address>
-            <p>Ouvert du Mardi au Samedi <br> 08h30 - 18h00</p>
-            <br>
-            <p>© 2024 Le Mellow - Site éco-conçu</p>
-        </div>
+        <h3>Le Mellow</h3>
+        <p>
+            Un concept qui lie plaisir et conscience.
+        </p>
+        <address class="address">
+            📍 **Localisation :** Quartier Côte Pavée, 31500 Toulouse<br>
+            ⏳ **Horaires :** Du Mardi au Samedi | 08h30 - 18h00<br>
+            📞 **Contact :** <a href="tel:+33xxxxxxxxxx">0X XX XX XX XX</a>
+        </address>
+        
+        <p class="copyright">© 2024 Le Mellow - Site éco-conçu et ultra-léger.</p>
     </footer>
 
 </body>
