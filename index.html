@@ -88,7 +88,6 @@
         }
         
         .logo-img {
-            /* Ligne de code pour le logo, centrée */
             display: block; 
             margin: 0 auto 10px; 
             width: 180px; 
@@ -161,31 +160,61 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         
-        /* B. SECTION HISTOIRE */
-        #histoire {
+        /* C. NOUVEAUTÉ : SECTION MISSION (Pour le Qui, Quoi, Pourquoi, Comment) */
+        #mission {
             background-color: var(--light-cream);
-            margin: 50px 0;
+            padding: 60px 40px;
+            margin-top: 50px;
             border-radius: 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            padding: 60px 40px;
+        }
+        .mission-box {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 5px solid var(--primary-green);
+            background-color: rgba(143, 170, 137, 0.05);
+            border-radius: 5px;
+        }
+        .mission-box h3 {
+            color: var(--accent-brown);
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+            font-family: 'Lato', sans-serif;
+            text-transform: none;
+            font-weight: 700;
+        }
+
+        /* D. NOUVEAUTÉ : SECTION BESOINS & SOLUTIONS */
+        #solution {
+            padding-top: 40px;
+        }
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            text-align: left;
+        }
+        .solution-box {
+            padding: 30px;
+            border: 1px dashed var(--accent-brown);
+            border-radius: 15px;
+            background-color: var(--light-cream);
+        }
+        .solution-box h3 {
+            color: var(--primary-green);
             text-align: center;
         }
-        
-        .story-box {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px;
-            border: 3px double var(--accent-brown); 
-            border-radius: 10px;
-            background-color: #FFF;
+        .solution-box ul {
+            list-style-type: '🌿 '; /* Déco: utilise une petite feuille ou icône si possible */
+            padding-left: 20px;
+            margin-top: 15px;
         }
-        
-        .story-box p {
-            text-align: left;
-            margin-bottom: 15px;
+        .solution-box ul li {
+            margin-bottom: 10px;
         }
-        
-        /* C. SECTION CONCEPT & SERVICES */
+
+        /* E. SECTION CONCEPT & SERVICES */
         .concept-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -213,7 +242,7 @@
             display: block; 
         }
 
-        /* D. MINI-GALERIE THÉMATIQUE */
+        /* F. MINI-GALERIE THÉMATIQUE (Styles non changés) */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -231,7 +260,7 @@
             transform: scale(1.03);
         }
 
-        /* E. FOCUS PRODUIT */
+        /* G. FOCUS PRODUIT (Styles non changés) */
         #focus {
             background-color: var(--primary-green);
             color: var(--light-cream);
@@ -253,7 +282,7 @@
         }
         #focus .focus-img img { height: 100%; width: 100%; }
 
-        /* F. FORMULAIRE DE CONTACT */
+        /* H. FORMULAIRE DE CONTACT (Styles non changés) */
         #contact {
             background-color: var(--light-cream);
             padding: 60px;
@@ -296,7 +325,7 @@
             min-height: 150px;
         }
 
-        /* G. FOOTER */
+        /* I. FOOTER */
         footer {
             background-color: var(--light-cream);
             padding: 50px 20px;
@@ -316,6 +345,8 @@
             #focus .focus-img { margin-bottom: 20px; }
             
             #contact { padding: 40px 20px; }
+            
+            .solution-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -328,7 +359,7 @@
             <div class="tagline">Café Boutique • Côte Pavée</div>
             
             <nav>
-                <a href="#histoire">Notre Histoire</a>
+                <a href="#mission">Notre Mission</a>
                 <a href="#concept">Le Concept</a>
                 <a href="#galerie">Photos</a>
                 <a href="#contact">Contact</a>
@@ -345,29 +376,69 @@
                 Votre nouveau lieu de vie gourmand et éthique au cœur de **Côte Pavée**. 
                 L'équilibre parfait entre plaisir gustatif et consommation responsable.
             </p>
-            <a href="#histoire" class="btn">En savoir plus</a>
+            <a href="#mission" class="btn">Découvrir notre Mission</a>
         </section>
         
-        <section id="histoire">
-            <h2>L'Esprit Le Mellow</h2>
-            <div class="story-box">
-                <p>
-                    **Le Mellow Café Boutique** propose un concept innovant qui associe la **dégustation** sur place et la **vente en vrac** de produits sains.
-                </p>
-                <p>
-                    Nos pâtisseries et encas sont intégralement préparés avec des **ingrédients naturels** disponibles directement en boutique, tels que des fruits secs sélectionnés, des farines sans gluten et des alternatives au sucre raffiné.
-                </p>
-                <p>
-                    Situé dans le quartier de **Côte Pavée**, notre lieu vous permet de découvrir des créations gourmandes, puis d’acheter les mêmes ingrédients en vrac, dans une démarche **éthique et écologique** visant à réduire les emballages.
-                </p>
-                <p style="font-weight: bold; color: var(--accent-brown);">
-                    Le Mellow s’adresse à celles et ceux qui recherchent des saveurs authentiques, une alimentation plus saine et une expérience gourmande respectueuse de l’environnement.
-                </p>
+        <section id="mission">
+            <h2>Notre Engagement Gourmand et Responsable</h2>
+            
+            <div class="mission-box">
+                <h3>QUI ? L'équipe Les Mellows.</h3>
+                <p>Nous sommes l’équipe Les Mellows, engagée dans une démarche gourmande, saine et responsable, profondément ancrée dans le quartier de Côte Pavée.</p>
+            </div>
+            
+            <div class="mission-box">
+                <h3>QUOI ? Un Café Boutique 100% Transparent.</h3>
+                <p>Le Mellow Café Boutique est un concept unique qui associe un espace de dégustation à une boutique d’ingrédients naturels vendus exclusivement en vrac. Toutes les pâtisseries et encas sont réalisés avec les ingrédients disponibles côté boutique : fruits secs sélectionnés, farines sans gluten, alternatives au sucre raffiné et autres produits sains.</p>
+            </div>
+
+            <div class="mission-box">
+                <h3>POURQUOI ? Simplifier le Bien-Manger.</h3>
+                <p>Nous avons créé ce lieu pour répondre à une frustration courante : la difficulté de manger sain, gourmand et responsable sans emballage. Notre objectif est de créer un lieu où l’on peut se faire plaisir tout en accédant facilement à des ingrédients sains, pratiques et responsables.</p>
+            </div>
+            
+            <div class="mission-box">
+                <h3>COMMENT ? Le Cycle Mellow.</h3>
+                <p>Notre concept permet de :</p>
+                <ul>
+                    <li>Déguster des boissons et pâtisseries naturelles faites maison.</li>
+                    <li>Comprendre ce que l’on consomme grâce à des ingrédients transparents et accessibles.</li>
+                    <li>Acheter en vrac ces mêmes ingrédients pour les utiliser chez soi, dans des contenants réutilisables.</li>
+                </ul>
+                <p style="font-style: italic; margin-top: 10px;">Cela permet une consommation plus saine, plus écologique et surtout beaucoup plus simple.</p>
+            </div>
+        </section>
+        
+        <section id="solution">
+            <h2>Pourquoi choisir Le Mellow ?</h2>
+            <div class="solution-grid">
+                
+                <div class="solution-box">
+                    <h3>Les Besoins de nos Clients</h3>
+                    <p>Nos clients recherchent avant tout :</p>
+                    <ul>
+                        <li>Des saveurs **authentiques** et du réconfort.</li>
+                        <li>Une offre gourmande mais **saine** (sans gluten, moins de sucre).</li>
+                        <li>La **simplicité** pour consommer responsable et en vrac.</li>
+                        <li>Un ancrage **local** et une ambiance chaleureuse (Côte Pavée).</li>
+                    </ul>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Notre Valeur Ajoutée (L'Avantage Concurrentiel)</h3>
+                    <p>Le Mellow propose une solution intégrée et unique :</p>
+                    <ul>
+                        <li>**Tester avant d'acheter :** Savourez nos recettes en pâtisserie avant d'acheter les ingrédients en vrac.</li>
+                        <li>**Transparence Totale :** Pas d'ingrédient mystère. Nos pâtisseries sont la vitrine de notre épicerie.</li>
+                        <li>**Lieu Unique :** Le seul endroit à Côte Pavée qui combine la gourmandise saine et le vrac de qualité.</li>
+                        <li>**Simplicité & Éthique :** Nous rendons la consommation zéro déchet facile et appétissante.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section id="concept">
-            <h2>Dégustez, Aimez, Emportez.</h2>
+            <h2>Le Concept en Bref</h2>
             <div class="concept-grid">
                 <div class="concept-box">
                     <span class="concept-icon">🍰</span>
