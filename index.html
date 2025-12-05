@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. VARIABLES & COULEURS (Charte Mellow) --- */
+        /* --- 1. VARIABLES & COULEURS --- */
         :root {
-            --bg-color: #F9F7F2; /* Fond Crème très clair */
-            --primary-green: #8FAA89; /* Vert Sauge du cercle */
-            --accent-brown: #A67B5B; /* Brun des grains/bois pour les accents chauds */
-            --text-color: #333333; /* Gris foncé pour la lecture */
-            --light-cream: #FFFFFF; /* Blanc cassé pour les blocs internes */
+            --bg-color: #F9F7F2; 
+            --primary-green: #8FAA89; 
+            --accent-brown: #A67B5B; 
+            --text-color: #333333; 
+            --light-cream: #FFFFFF; 
         }
 
         /* --- 2. RESET & BASES --- */
@@ -32,7 +32,7 @@
             scroll-behavior: smooth; 
         }
         
-        /* --- DÉCO ARRIÈRE-PLAN ÉCONOME --- */
+        /* --- DÉCO ARRIÈRE-PLAN LÉGÈRE (Maintenue) --- */
         body::before {
             content: '';
             position: fixed;
@@ -46,7 +46,6 @@
             opacity: 0.8;
             pointer-events: none;
         }
-
 
         h1, h2, h3 {
             font-family: 'Amatic SC', cursive;
@@ -62,14 +61,6 @@
         a { text-decoration: none; color: inherit; transition: 0.3s ease; }
         ul { list-style: none; }
 
-        /* --- IMAGES OPTIMISÉES --- */
-        img { 
-            max-width: 100%; 
-            height: auto; 
-            border-radius: 10px;
-            object-fit: cover; 
-        }
-
         /* --- 3. STRUCTURE ET MISE EN PAGE --- */
         .container {
             max-width: 1100px;
@@ -80,37 +71,22 @@
             padding: 80px 0;
         }
 
-        /* --- HEADER & NAVIGATION --- */
+        /* --- HEADER & NAVIGATION (Retour à une taille simple pour le logo) --- */
         header {
-            /* Retiré : text-align: center; */
-            padding: 0 0 20px; /* Moins de padding en haut pour coller le logo */
+            padding: 40px 0 20px;
+            text-align: center; 
         }
         
-        /* NOUVEAU CONTENEUR POUR LE LOGO ÉTIRÉ */
-        .logo-container {
-            width: 100%; /* Prend toute la largeur de l'écran */
-            max-height: 300px; /* Limite la hauteur maximale pour ne pas écraser le contenu */
-            overflow: hidden;
-            text-align: center;
-            background-color: var(--light-cream); /* Couleur du fond du logo */
-        }
-        
+        /* Logo centré et de taille fixe pour l'éco-conception */
         .logo-img {
             display: block; 
-            margin: 0 auto; 
-            width: 100%; /* S'étire sur toute la largeur du conteneur */
-            max-width: 1500px; /* Limite la taille réelle sur très grands écrans */
+            margin: 0 auto 10px; 
+            width: 180px; 
             height: auto;
-            border-radius: 0; /* Pas de bordures pour l'effet "plein écran" */
+            border-radius: 50%; /* Si le logo est rond */
+            border: 3px solid var(--primary-green);
         }
 
-        .header-content {
-            text-align: center;
-            padding: 20px 25px 0; /* Padding ajouté ici au lieu de sur le header */
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
         .tagline {
             color: var(--accent-brown);
             font-size: 1.1rem;
@@ -136,9 +112,7 @@
             border-bottom: 2px solid var(--primary-green);
         }
 
-        /* --- 4. DECO DES BLOCS (Rien n'a changé) --- */
-
-        /* A. SECTION HERO */
+        /* --- A. SECTION HERO --- */
         .hero {
             background-color: var(--light-cream);
             text-align: center;
@@ -147,17 +121,66 @@
             box-shadow: 0 8px 30px rgba(143, 170, 137, 0.15); 
         }
 
-        .hero h1 { 
-            color: var(--primary-green);
-            font-size: 5rem;
-            margin-bottom: 10px;
+        /* --- NOUVELLE SECTION MENU --- */
+        #menu {
+            background-color: var(--light-cream);
+            padding: 60px 40px;
+            margin-top: 50px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
-        .hero p { 
-            max-width: 700px; margin: 0 auto 40px; 
-            font-size: 1.3rem; 
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .menu-category {
+            border: 1px solid var(--primary-green);
+            border-radius: 10px;
+            padding: 25px;
+        }
+        
+        .menu-category h3 {
+            text-align: center;
             color: var(--accent-brown);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 2px dashed var(--primary-green);
+            padding-bottom: 10px;
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        .item-name {
+            font-weight: 700;
+            color: var(--text-color);
+        }
+        
+        .item-price {
+            font-weight: 700;
+            color: var(--primary-green);
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+        
+        .item-description {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 2px;
+            font-style: italic;
         }
 
+        /* [Autres styles non modifiés] */
         .btn {
             display: inline-block;
             background-color: var(--primary-green);
@@ -169,15 +192,12 @@
             text-transform: uppercase;
             border: 2px solid var(--primary-green);
         }
-        
         .btn:hover {
             background-color: transparent;
             color: var(--primary-green);
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        
-        /* C. SECTION MISSION (Qui, Quoi, Pourquoi, Comment) */
         #mission {
             background-color: var(--light-cream);
             padding: 60px 40px;
@@ -200,8 +220,6 @@
             text-transform: none;
             font-weight: 700;
         }
-
-        /* D. SECTION BESOINS & SOLUTIONS */
         #solution {
             padding-top: 40px;
         }
@@ -230,8 +248,6 @@
         .solution-box ul li {
             margin-bottom: 10px;
         }
-
-        /* E. SECTION CONCEPT & SERVICES */
         #concept {
             padding: 80px 0; 
         }
@@ -242,7 +258,6 @@
             margin-top: 50px;
             text-align: center;
         }
-
         .concept-box {
             padding: 40px 25px;
             background-color: var(--light-cream);
@@ -254,73 +269,27 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(143, 170, 137, 0.2);
         }
-
         .concept-icon { 
             font-size: 3rem; 
             margin-bottom: 15px; 
             color: var(--accent-brown); 
             display: block; 
         }
-
-        /* F. MINI-GALERIE THÉMATIQUE */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 40px;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 250px; 
-            border: 3px solid var(--light-cream);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .gallery-item img:hover {
-            transform: scale(1.03);
-        }
-
-        /* G. FOCUS PRODUIT */
-        #focus {
-            background-color: var(--primary-green);
-            color: var(--light-cream);
-            border-radius: 20px;
-            padding: 60px;
-            margin: 50px 0;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        #focus h2, #focus h3 { color: var(--light-cream); text-align: left; }
-        #focus .focus-img {
-            min-width: 150px;
-            max-width: 200px;
-            height: 200px;
-            border: 5px solid var(--light-cream);
-            border-radius: 50%;
-            overflow: hidden;
-        }
-        .focus-img img { height: 100%; width: 100%; }
-
-        /* H. FORMULAIRE DE CONTACT */
         #contact {
             background-color: var(--light-cream);
             padding: 60px;
             border-radius: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: 700;
             color: var(--primary-green);
         }
-
         input[type="text"], 
         input[type="email"], 
         textarea {
@@ -332,20 +301,10 @@
             font-size: 1rem;
             transition: border-color 0.3s;
         }
-
-        input[type="text"]:focus, 
-        input[type="email"]:focus, 
-        textarea:focus {
-            border-color: var(--accent-brown);
-            outline: none;
-        }
-
         textarea {
             resize: vertical;
             min-height: 150px;
         }
-
-        /* I. FOOTER */
         footer {
             background-color: var(--light-cream);
             padding: 50px 20px;
@@ -353,39 +312,28 @@
             border-top: 5px solid var(--primary-green);
             margin-top: 50px;
         }
-
-        /* --- RESPONSIVE (Optimisation Mobile) --- */
         @media (max-width: 768px) {
             h1 { font-size: 3.5rem; }
             h2 { font-size: 2.5rem; }
-            
             nav a { display: block; margin: 5px 0; }
-            
-            #focus { flex-direction: column; text-align: center; }
-            #focus .focus-img { margin-bottom: 20px; }
-            
             #contact { padding: 40px 20px; }
-            
             .solution-grid { grid-template-columns: 1fr; }
-            
-            .logo-img { max-height: 200px; } /* Réduire la hauteur sur mobile */
+            .menu-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="image/Mellowcafe.jpg" alt="Le Mellow Café Boutique Côte Pavée" class="logo-img"> 
-        </div>
-
-        <div class="header-content">
+        <div class="container">
+            <img src="image/Mellowcafe.jpg" alt="Le Mellow Café Boutique Côte Pavée" class="logo-img" width="180" height="180"> 
+            
             <div class="tagline">Café Boutique • Côte Pavée</div>
             
             <nav role="navigation">
                 <a href="#mission">Notre Mission</a>
                 <a href="#concept">Le Concept</a>
-                <a href="#galerie">Photos</a>
+                <a href="#menu">Le Menu</a> 
                 <a href="#contact">Contact</a>
                 <a href="#infos">Infos</a>
             </nav>
@@ -400,7 +348,7 @@
                 Votre nouveau lieu de vie gourmand et éthique au cœur de **Côte Pavée**. 
                 L'équilibre parfait entre plaisir gustatif et consommation responsable.
             </p>
-            <a href="#mission" class="btn">Découvrir notre Mission</a>
+            <a href="#menu" class="btn">Découvrir le Menu</a>
         </section>
         
         <section id="mission">
@@ -431,6 +379,75 @@
                 </ul>
                 <p style="font-style: italic; margin-top: 10px;">Cela permet une consommation plus saine, plus écologique et surtout beaucoup plus simple.</p>
             </div>
+        </section>
+        
+        <section id="menu">
+            <h2>Notre Carte du Moment</h2>
+            
+            <div class="menu-grid">
+                
+                <div class="menu-category">
+                    <h3>Pâtisseries Maison 🍰</h3>
+                    <div class="menu-item">
+                        <span class="item-name">Cake Citron & Graines de Pavot</span>
+                        <span class="item-price">4,50€</span>
+                        <p class="item-description">Sans gluten, à base de farine de riz. Moelleux garanti.</p>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Brownie Intense Noix de Pécan</span>
+                        <span class="item-price">5,00€</span>
+                        <p class="item-description">Fait avec notre cacao pur et sucre de coco. Vegan.</p>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Cookie du Mellow (Change chaque semaine)</span>
+                        <span class="item-price">3,50€</span>
+                        <p class="item-description">Demandez à l'équipe la saveur du jour !</p>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Boissons Chaudes & Fraîches ☕</h3>
+                    <div class="menu-item">
+                        <span class="item-name">Café Filtre Éthique</span>
+                        <span class="item-price">2,50€</span>
+                        <p class="item-description">Grain sélectionné par nos soins, torréfaction locale.</p>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Latte Macchiato Végétal</span>
+                        <span class="item-price">4,00€</span>
+                        <p class="item-description">Au lait d'amande ou d'avoine, sans frais supplémentaires.</p>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Infusion Maison Éphémère</span>
+                        <span class="item-price">3,80€</span>
+                        <p class="item-description">Mélange de plantes de la région (froid ou chaud).</p>
+                    </div>
+                </div>
+                
+                <div class="menu-category">
+                    <h3>Épicerie Fine & Vrac</h3>
+                    <div class="menu-item">
+                        <span class="item-name">Farine de Riz Complète Bio</span>
+                        <span class="item-price">6,90€/kg</span>
+                        <p class="item-description">La base de toutes nos pâtisseries sans gluten.</p>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Muesli Granola Cacao Cru</span>
+                        <span class="item-price">12,00€/kg</span>
+                        <p class="item-description">Fait maison et riche en fibres. Idéal pour le petit-déjeuner.</p>
+                    </div>
+                    <div class="menu-item">
+                        <span class="item-name">Miel de Châtaignier Local</span>
+                        <span class="item-price">15,00€/pot</span>
+                        <p class="item-description">Directement du producteur de la Haute-Garonne.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <p style="text-align: center; margin-top: 40px; font-size: 1.1rem; color: var(--accent-brown); font-weight: 700;">
+                Toutes nos préparations sont faites maison, sans gluten, et majoritairement vegan.
+            </p>
         </section>
         
         <section id="solution">
@@ -483,37 +500,6 @@
             </div>
         </section>
 
-        <section id="focus">
-            <div class="focus-img">
-                <img src="image/focus-farine-riz.webp" alt="Farine de riz complet" loading="lazy" width="200" height="200">
-            </div>
-            <div>
-                <h2>Focus Produit du Mois :</h2>
-                <h3>La Farine de Riz Complet Bio</h3>
-                <p>
-                    Cet ingrédient est la star de notre *Cake du Moment* ! Nous l'aimons pour sa légèreté naturelle, son apport nutritionnel élevé et sa texture délicate. 
-                </p>
-                <p>
-                    **Disponible en vrac dans notre boutique !**
-                </p>
-            </div>
-        </section>
-        
-        <section id="galerie">
-            <h2>Notre Univers en Images</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="image/mellow-patisserie-1.webp" alt="Gros plan d'un gâteau Le Mellow" loading="lazy" width="350" height="250">
-                </div>
-                <div class="gallery-item">
-                    <img src="image/ambiancecozy-4.webp" alt="Ambiance cozy du café et boutique Le Mellow" loading="lazy" width="350" height="250">
-                </div>
-                <div class="gallery-item">
-                    <img src="image/mellow-vrac-3.webp" alt="Bocaux de vrac et épicerie" loading="lazy" width="350" height="250">
-                </div>
-            </div>
-        </section>
-        
         <section id="contact">
             <h2>Une Question ? Une Commande ?</h2>
             <form action="VOTRE_LIEN_FORMULAIRE_ICI" method="POST">
