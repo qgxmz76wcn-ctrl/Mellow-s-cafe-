@@ -29,7 +29,7 @@
             color: var(--text-color);
             line-height: 1.7; 
             font-size: 18px;
-            scroll-behavior: smooth; /* Défilement fluide entre les ancres */
+            scroll-behavior: smooth; 
         }
         
         /* --- DÉCO ARRIÈRE-PLAN ÉCONOME --- */
@@ -40,7 +40,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Utilisation de dégradés CSS légers plutôt que des images de fond lourdes */
             background: radial-gradient(circle at top right, rgba(143, 170, 137, 0.05) 0%, transparent 40%),
                         radial-gradient(circle at bottom left, rgba(166, 123, 91, 0.03) 0%, transparent 40%);
             z-index: -1; 
@@ -83,17 +82,35 @@
 
         /* --- HEADER & NAVIGATION --- */
         header {
+            /* Retiré : text-align: center; */
+            padding: 0 0 20px; /* Moins de padding en haut pour coller le logo */
+        }
+        
+        /* NOUVEAU CONTENEUR POUR LE LOGO ÉTIRÉ */
+        .logo-container {
+            width: 100%; /* Prend toute la largeur de l'écran */
+            max-height: 300px; /* Limite la hauteur maximale pour ne pas écraser le contenu */
+            overflow: hidden;
             text-align: center;
-            padding: 40px 0 20px;
+            background-color: var(--light-cream); /* Couleur du fond du logo */
         }
         
         .logo-img {
             display: block; 
-            margin: 0 auto 10px; 
-            width: 180px; 
+            margin: 0 auto; 
+            width: 100%; /* S'étire sur toute la largeur du conteneur */
+            max-width: 1500px; /* Limite la taille réelle sur très grands écrans */
             height: auto;
+            border-radius: 0; /* Pas de bordures pour l'effet "plein écran" */
         }
 
+        .header-content {
+            text-align: center;
+            padding: 20px 25px 0; /* Padding ajouté ici au lieu de sur le header */
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
         .tagline {
             color: var(--accent-brown);
             font-size: 1.1rem;
@@ -119,7 +136,7 @@
             border-bottom: 2px solid var(--primary-green);
         }
 
-        /* --- 4. DECO DES BLOCS --- */
+        /* --- 4. DECO DES BLOCS (Rien n'a changé) --- */
 
         /* A. SECTION HERO */
         .hero {
@@ -215,6 +232,9 @@
         }
 
         /* E. SECTION CONCEPT & SERVICES */
+        #concept {
+            padding: 80px 0; 
+        }
         .concept-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -347,15 +367,19 @@
             #contact { padding: 40px 20px; }
             
             .solution-grid { grid-template-columns: 1fr; }
+            
+            .logo-img { max-height: 200px; } /* Réduire la hauteur sur mobile */
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <img src="Mellowcafe.jpg" alt="Le Mellow Café Boutique Côte Pavée" class="logo-img" width="180" height="180"> 
-            
+        <div class="logo-container">
+            <img src="image/Mellowcafe.jpg" alt="Le Mellow Café Boutique Côte Pavée" class="logo-img"> 
+        </div>
+
+        <div class="header-content">
             <div class="tagline">Café Boutique • Côte Pavée</div>
             
             <nav role="navigation">
@@ -383,22 +407,22 @@
             <h2>Notre Engagement Gourmand et Responsable</h2>
             
             <div class="mission-box">
-                <h3> L'équipe Les Mellows.</h3>
+                <h3>QUI ? L'équipe Les Mellows.</h3>
                 <p>Nous sommes l’équipe Les Mellows, engagée dans une démarche gourmande, saine et responsable, profondément ancrée dans le quartier de Côte Pavée.</p>
             </div>
             
             <div class="mission-box">
-                <h3> Un Café Boutique 100% Transparent.</h3>
+                <h3>QUOI ? Un Café Boutique 100% Transparent.</h3>
                 <p>Le Mellow Café Boutique est un concept unique qui associe un espace de dégustation à une boutique d’ingrédients naturels vendus exclusivement en vrac. Toutes les pâtisseries et encas sont réalisés avec les ingrédients disponibles côté boutique : fruits secs sélectionnés, farines sans gluten, alternatives au sucre raffiné et autres produits sains.</p>
             </div>
 
             <div class="mission-box">
-                <h3> Simplifier le Bien-Manger.</h3>
+                <h3>POURQUOI ? Simplifier le Bien-Manger.</h3>
                 <p>Nous avons créé ce lieu pour répondre à une frustration courante : la difficulté de manger sain, gourmand et responsable sans emballage. Notre objectif est de créer un lieu où l’on peut se faire plaisir tout en accédant facilement à des ingrédients sains, pratiques et responsables.</p>
             </div>
             
             <div class="mission-box">
-                <h3> Le Cycle Mellow.</h3>
+                <h3>COMMENT ? Le Cycle Mellow.</h3>
                 <p>Notre concept permet de :</p>
                 <ul>
                     <li>Déguster des boissons et pâtisseries naturelles faites maison.</li>
@@ -417,10 +441,10 @@
                     <h3>Les Besoins de nos Clients</h3>
                     <p>Nos clients recherchent avant tout :</p>
                     <ul>
-                        <li>Des saveurs authentiques et du réconfort.</li>
-                        <li>Une offre gourmande mais saine (sans gluten, moins de sucre).</li>
-                        <li>La simplicité pour consommer responsable et en vrac.</li>
-                        <li>Un ancrage local et une ambiance chaleureuse (Côte Pavée).</li>
+                        <li>Des saveurs **authentiques** et du réconfort.</li>
+                        <li>Une offre gourmande mais **saine** (sans gluten, moins de sucre).</li>
+                        <li>La **simplicité** pour consommer responsable et en vrac.</li>
+                        <li>Un ancrage **local** et une ambiance chaleureuse (Côte Pavée).</li>
                     </ul>
                 </div>
 
@@ -428,9 +452,10 @@
                     <h3>Notre Valeur Ajoutée (L'Avantage Concurrentiel)</h3>
                     <p>Le Mellow propose une solution intégrée et unique :</p>
                     <ul>
-                        <li>Transparence Totale : Pas d'ingrédient mystère. Nos pâtisseries sont la vitrine de notre épicerie.</li>
-                        <li>Lieu Unique : Le seul endroit à Côte Pavée qui combine la gourmandise saine et le vrac de qualité.</li>
-                        <li>Simplicité & Éthique : Nous rendons la consommation zéro déchet facile et appétissante.</li>
+                        <li>**Tester avant d'acheter :** Savourez nos recettes en pâtisserie avant d'acheter les ingrédients en vrac.</li>
+                        <li>**Transparence Totale :** Pas d'ingrédient mystère. Nos pâtisseries sont la vitrine de notre épicerie.</li>
+                        <li>**Lieu Unique :** Le seul endroit à Côte Pavée qui combine la gourmandise saine et le vrac de qualité.</li>
+                        <li>**Simplicité & Éthique :** Nous rendons la consommation zéro déchet facile et appétissante.</li>
                     </ul>
                 </div>
             </div>
@@ -460,16 +485,16 @@
 
         <section id="focus">
             <div class="focus-img">
-                <img src="focus-farine-riz.webp" alt="Farine de riz complet" loading="lazy" width="200" height="200">
+                <img src="image/focus-farine-riz.webp" alt="Farine de riz complet" loading="lazy" width="200" height="200">
             </div>
             <div>
                 <h2>Focus Produit du Mois :</h2>
                 <h3>La Farine de Riz Complet Bio</h3>
                 <p>
-                    Cet ingrédient est la star de notre Cake du Moment! Nous l'aimons pour sa légèreté naturelle, son apport nutritionnel élevé et sa texture délicate. 
+                    Cet ingrédient est la star de notre *Cake du Moment* ! Nous l'aimons pour sa légèreté naturelle, son apport nutritionnel élevé et sa texture délicate. 
                 </p>
                 <p>
-                    Disponible en vrac dans notre boutique !
+                    **Disponible en vrac dans notre boutique !**
                 </p>
             </div>
         </section>
@@ -478,13 +503,13 @@
             <h2>Notre Univers en Images</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="mellow-patisserie-1.webp" alt="Gros plan d'un gâteau Le Mellow" loading="lazy" width="350" height="250">
+                    <img src="image/mellow-patisserie-1.webp" alt="Gros plan d'un gâteau Le Mellow" loading="lazy" width="350" height="250">
                 </div>
                 <div class="gallery-item">
-                    <img src="ambiancecozy-4.webp" alt="Ambiance cozy du café Le Mellow" loading="lazy" width="350" height="250">
+                    <img src="image/ambiancecozy-4.webp" alt="Ambiance cozy du café et boutique Le Mellow" loading="lazy" width="350" height="250">
                 </div>
                 <div class="gallery-item">
-                    <img src="mellow-vrac-3.webp" alt="Bocaux de vrac et épicerie" loading="lazy" width="350" height="250">
+                    <img src="image/mellow-vrac-3.webp" alt="Bocaux de vrac et épicerie" loading="lazy" width="350" height="250">
                 </div>
             </div>
         </section>
@@ -528,13 +553,13 @@
             Un concept qui lie plaisir et conscience.
         </p>
         <address class="address">
-            📍 Localisation : Quartier Côte Pavée, 31500 Toulouse<br>
-            ⏳ Horaires :Du Mardi au Samedi | 08h30 - 18h00<br>
-            📞 Contact :<a href="tel:+33xxxxxxxxxx">0X XX XX XX XX</a>
-            <p style="margin-top: 10px;"><a href="https://www.google.com/maps/place/Côte+Pavée,+Toulouse/@43.5928254,1.4593808,14.93z/data=!4m6!3m5!1s0x12aebcf67b34a82d:0xab3b114c53245d4e!8m2!3d43.5921099!4d1.4700572!16s%2Fg%2F121xcxpp?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D" class="btn" style="padding: 8px 15px; font-size: 0.9em;">Voir nos Horaires & Accès 🗺️</a></p>
+            📍 **Localisation :** Quartier Côte Pavée, 31500 Toulouse<br>
+            ⏳ **Horaires :** Du Mardi au Samedi | 08h30 - 18h00<br>
+            📞 **Contact :** <a href="tel:+33xxxxxxxxxx">0X XX XX XX XX</a>
+            <p style="margin-top: 10px;"><a href="VOTRE_LIEN_GOOGLE_MAPS" class="btn" style="padding: 8px 15px; font-size: 0.9em;">Voir nos Horaires & Accès 🗺️</a></p>
         </address>
         
-        <p class="copyright">© 2024 Le Mellow - Site éco-conçu.</p>
+        <p class="copyright">© 2024 Le Mellow - Site éco-conçu et ultra-léger.</p>
     </footer>
 
 </body>
